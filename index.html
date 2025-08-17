@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/styles.css" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
+    ></script>
+    <script defer src="./script.js"></script>
+  </head>
+  <body
+    class="flex m-auto h-screen flex-col items-center justify-center gap-8 bg-gray-50 p-4 sm:p-6 lg:p-8"
+  >
+    <main class="block rounded-md border border-gray-300 p-4 shadow-sm sm:p-6">
+      <!-- <div class="sm:flex sm:justify-between sm:gap-4 lg:gap-6">
+        <input type="text" placeholder="Search..." class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <button class="mt-2 w-full rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:mt-0 sm:w-auto">
+            Submit
+        </button>
+          
+        
+
+      </div> -->
+
+      <div class="form-container">
+        <div class="error-message" id="errorMessage"></div>
+        <form id="taskForm">
+          <div class="input-group">
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="What needs to be done?"
+              required
+              maxlength="100"
+            />
+            <select id="categorySelect" required>
+              <option value="">Choose category</option>
+              <option value="work">🏢 Work</option>
+              <option value="home">🏠 Home</option>
+              <option value="study">📚 Study</option>
+            </select>
+          </div>
+          <button type="submit" class="add-btn">Add Task</button>
+        </form>
+      </div>
+
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Tasks</button>
+        <button class="filter-btn" data-filter="work">Work</button>
+        <button class="filter-btn" data-filter="home">Home</button>
+        <button class="filter-btn" data-filter="study">Study</button>
+      </div>
+
+      <ul id="taskList" class="task-list">
+        <!-- Tasks will be inserted here -->
+      </ul>
+
+      <!-- Hidden task template -->
+      <template id="taskTemplate">
+        <li class="task-item" data-category="" data-completed="false">
+          <div class="task-content">
+            <div class="task-info">
+              <div class="task-text">task</div>
+              <span class="task-category">category</span>
+            </div>
+          </div>
+        </li>
+      </template>
+    </main>
+    <footer>
+      <p>&copy; 2025 My Website</p>
+    </footer>
+  </body>
+</html>
