@@ -6,12 +6,22 @@ const inputfield = document.getElementById("taskInput");
 const btnAdd = document.querySelector('.add-btn');
 const categorySelect = document.querySelector('select');
 const taskList = document.getElementById('taskList');
+const taskForm = document.getElementById('taskForm');
 
 let currentFilter = 'all';
 
 console.log(inputfield);
 console.log(btnAdd);
 console.log(categorySelect);
+
+
+
+function addEventListeners(){
+    taskForm.addEventListener('submit',);
+
+    inputfield.addEventListener('input',validateInput);
+}
+
 
 function loadTask() {
     if (taskData.length === 0) {
@@ -20,9 +30,18 @@ function loadTask() {
         }
     }
 }
+// Input Validation
+function validateInput() {
+  if (inputfield.value === "") {
+    alert("Please provide a task.");
+    inputfield.focus();
+    return false;
+  }
+  return inputfield.value;
+}
 
-function runTask(){
-    taskList.innerHTML= '';
+function runTask() {
+    taskList.innerHTML = '';
 
     const filteredTask = GetFilterTasks();
 
@@ -32,7 +51,8 @@ function runTask(){
     // }
 
     // emptyState.style.display = 'none';
-    for(let i;i<filteredTask.legth;i++){
+
+    for (let i = 0; i < filteredTask.length; i++) {
         const taskElement = filteredTask[i];
         taskList.appendChild(taskElement);
     }
@@ -43,7 +63,7 @@ function runTask(){
 
 function GetFilterTasks() {
     filteredTask = [];
-    for (let i; i < taskData.length; i++) {
+    for (let i = 0; i < taskData.length; i++) {
         const task = taskData[i];
         if (currentFilter === 'work' || currentFilter === 'home' || currentFilter === 'study') {
             if (task.category === currentFilter) {
