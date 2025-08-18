@@ -10,7 +10,9 @@ const taskForm = document.getElementById('taskForm');
 const btnWrapper = document.querySelector('.filter-buttons');
 const filterButtons = btnWrapper.childNodes;
 
-console.log(filterButtons);
+console.log("----------", filterButtons);
+// console.log("----------",btnWrapper);
+
 
 let currentFilter = 'all';
 
@@ -19,7 +21,7 @@ console.log(btnAdd);
 console.log(categorySelect);
 
 
-function render(){
+function render() {
     loadTask();
     runTasks();
     addEventListeners();
@@ -98,7 +100,7 @@ function runTasks() {
 }
 
 function createTask(task) {
-    
+
     const clone = taskTemplate.content.cloneNode(true);
     const taskItem = clone.querySelector('.task-item');
 
@@ -123,13 +125,23 @@ function getCategoryIcon(category) {
 }
 
 function handleFilterChange(e) {
-    // Update active filter button
-    filterButtons.forEach(btn => btn.classList.remove('active'));
+    // toggle between active filter button
+
+    for(const btn of filterButtons){
+        console.log("element btn", btn.nodeName);
+
+        if(btn.nodeName === 'BUTTON'){
+            btn.classList.remove('active')
+        }
+    }
+    
     e.target.classList.add('active');
 
-    //This code snippet isn't totally mine credit to stackoverflow.
+    //This code snippet isn't totally stem from me, credit to stackoverflow.
     // this variable store witch filter is currently active, with the  element dataset that give access to all the data attribute of an HTML element and filter correspond to data-filter attribute in the HTML.
-    currentFilter = e.target.dataset.filter;
+     currentFilter = e.target.dataset.filter;
+    //
+
     runTasks();
 }
 
