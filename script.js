@@ -19,6 +19,11 @@ console.log(btnAdd);
 console.log(categorySelect);
 
 
+function render(){
+    loadTask();
+    runTasks();
+    addEventListeners();
+}
 
 function addEventListeners() {
     taskForm.addEventListener('submit', handleTask);
@@ -62,14 +67,7 @@ function handleTask(e) {
 }
 
 
-function loadTask() {
-    if (taskData.length === 0) {
-        for (const task of taskData) {
-            console.log(task);
 
-        }
-    }
-}
 // Input Validation
 function validateInput() {
     if (inputfield.value === "") {
@@ -100,8 +98,9 @@ function runTasks() {
 }
 
 function createTask(task) {
-    const taskItem = document.querySelector('.task-item');
+    
     const clone = taskTemplate.content.cloneNode(true);
+    const taskItem = clone.querySelector('.task-item');
 
     const taskText = taskItem.querySelector('.task-text');
     const taskCategory = taskItem.querySelector('.task-category');
@@ -150,4 +149,15 @@ function GetFilterTasks() {
     }
     return filteredTask;
 }
+
+function loadTask() {
+    if (taskData.length === 0) {
+        for (const task of taskData) {
+            console.log(task);
+
+        }
+    }
+}
+
+render();
 
