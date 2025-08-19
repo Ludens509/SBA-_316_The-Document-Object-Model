@@ -9,6 +9,15 @@ const taskList = document.getElementById('taskList');
 const taskForm = document.getElementById('taskForm');
 const btnWrapper = document.querySelector('.filter-buttons');
 const filterButtons = btnWrapper.childNodes;
+const container =  document.querySelector('.form-container');
+
+console.log(container);
+const header = document.createElement('header');
+console.log(header);
+container.prepend(header);
+header.textContent= 'Task Manager';
+header.style.fontWeight = 'bold';
+header.style.marginBottom = '12px';
 
 console.log("----------", filterButtons);
 // console.log("----------",btnWrapper);
