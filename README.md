@@ -66,4 +66,3 @@ After completing the project, reflect on the following questions:
 ---
 ```
 
-👉 Would you like me to also **add placeholders** (like `## 🚀 How to Run`, `## 🔧 Technologies Used`, etc.) so it looks like a fully polished README template you can reuse across projects?
