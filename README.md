@@ -1,4 +1,4 @@
-Here’s a clean **Markdown README-style version** of what you gave me. I’ve formatted it to follow GitHub README conventions, with clear sections, headings, bullet points, and a requirements table.
+
 
 ```markdown
 # Web Application Project
