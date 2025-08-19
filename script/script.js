@@ -10,24 +10,26 @@ const taskForm = document.getElementById('taskForm');
 const btnWrapper = document.querySelector('.filter-buttons');
 const filterButtons = btnWrapper.childNodes;
 const container =  document.querySelector('.form-container');
+const emptyState = document.getElementById('emptyState');
 
+
+
+// Create Header with tittle
 console.log(container);
 const header = document.createElement('header');
 console.log(header);
 container.prepend(header);
 header.textContent= 'Task Manager';
 header.style.fontWeight = 'bold';
-header.style.marginBottom = '12px';
+header.style.marginBottom = '20px';
+header.style.fontSize = '24px';
+header.style.textAlign = 'center';
 
 console.log("----------", filterButtons);
 // console.log("----------",btnWrapper);
 
 
 let currentFilter = 'all';
-
-console.log(inputfield);
-console.log(btnAdd);
-console.log(categorySelect);
 
 
 function render() {
@@ -36,6 +38,7 @@ function render() {
     addEventListeners();
 }
 
+// this function contains  all the event Listener
 function addEventListeners() {
     taskForm.addEventListener('submit', handleTask);
 
@@ -46,6 +49,8 @@ function addEventListeners() {
     });
 }
 
+
+// This function allow to create tasks
 function handleTask(e) {
     e.preventDefault();
 
@@ -88,18 +93,13 @@ function validateInput() {
     }
     return inputfield.value;
 }
+//This function allow to pass each filtered task into its created element
 
 function runTasks() {
     taskList.innerHTML = '';
 
     const filteredTasks = GetFilterTasks();
 
-    // if(filteredTask === 0){
-    //     emptyState.style.display = 'block';
-    //     return;
-    // }
-
-    // emptyState.style.display = 'none';
 
     filteredTasks.forEach(task => {
         const taskElement = createTask(task);
@@ -108,6 +108,7 @@ function runTasks() {
 
 }
 
+// This function contain the template element where the tasks are being displayed in
 function createTask(task) {
 
     const clone = taskTemplate.content.cloneNode(true);
@@ -117,6 +118,7 @@ function createTask(task) {
     const taskCategory = taskItem.querySelector('.task-category');
 
     taskText.textContent = task.text;
+    //pass down the current icon function that contains the object icon
     taskCategory.textContent = getCategoryIcon(task.category) + '' + task.category;
     taskCategory.classList.add(task.category);
 
@@ -133,11 +135,12 @@ function getCategoryIcon(category) {
     return icons[category] || '📝';
 }
 
+//this function handle the toggle envent on filter button
 function handleFilterChange(e) {
     // toggle between active filter button
 
     for(const btn of filterButtons){
-        console.log("element btn", btn.nodeName);
+        // console.log("element btn", btn.nodeName);
 
         if(btn.nodeName === 'BUTTON'){
             btn.classList.remove('active')
@@ -155,7 +158,7 @@ function handleFilterChange(e) {
 }
 
 
-
+// This function return the current task based on filtered selected category
 function GetFilterTasks() {
     filteredTask = [];
     for (let i = 0; i < taskData.length; i++) {
@@ -171,6 +174,7 @@ function GetFilterTasks() {
     return filteredTask;
 }
 
+// This function is to load data in case of use of Local Storage
 function loadTask() {
     if (taskData.length === 0) {
         for (const task of taskData) {
@@ -180,5 +184,6 @@ function loadTask() {
     }
 }
 
+//This function is the render function that calls all others function
 render();
 
