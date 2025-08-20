@@ -59,9 +59,19 @@ The following requirements are the **minimums**. Complete these before adding ad
 ## 💡 Reflection (Optional)
 After completing the project, reflect on the following questions:
 
-1. What could you have done differently during the **planning stages** to make execution easier?  
-2. Were any requirements difficult to implement? What would make them easier in the future?  
-3. What additional features or improvements would you add if you had more time?  
+1. What could you have done differently during the **planning stages** to make execution easier?
+
+   I would have focused more on thinking on the features i could have implemented in my project such as Delete, and statistics functionality.
+
+2. Were any requirements difficult to implement? What would make them easier in the future?
+
+   It was a bit difficult for me to figured out how best to implement localstorage, By the time i brainstormed about it
+   i, deadline was closing in ,so i 've decided to save it for future implementation.
+  
+3. What additional features or improvements would you add if you had more time?
+
+  statistic functionality for tracking
+  Delete functionality
 
 ---
 ```
